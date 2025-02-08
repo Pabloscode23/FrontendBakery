@@ -1,7 +1,7 @@
 import React from 'react'
-import { ComponentProductCard } from '../components/component-product-card/componentProductCard'
-import { products } from '../assets/data/products'
-import { ComponentCart } from '../components/component-cart/ComponentCart'
+import { ComponentProductCard } from '../components/component-product-card/ComponentProductCard';
+import { products } from '../assets/data/products';
+import { ComponentCart } from '../components/component-cart/ComponentCart';
 
 export const PageDashboard: React.FC = () => {
     return (

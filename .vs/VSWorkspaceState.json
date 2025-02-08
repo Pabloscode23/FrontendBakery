@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\assets",
+    "\\src\\assets\\data",
+    "\\src\\assets\\img",
+    "\\src\\components",
+    "\\src\\components\\component-cart",
+    "\\src\\components\\component-navbar",
+    "\\src\\components\\component-product-card",
+    "\\src\\pages"
+  ],
+  "SelectedNode": "\\src\\assets\\img\\Trash.png",
+  "PreviewInSolutionExplorer": false
+}
