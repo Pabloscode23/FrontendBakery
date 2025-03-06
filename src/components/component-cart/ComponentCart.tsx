@@ -30,7 +30,7 @@ export const ComponentCart: React.FC = () => {
     const totalPrice = quantity * productPrice;
 
     return (
-        <div className="cart__container flex flex-col w-[300px] h-[400px] rounded-lg p-6 bg-white shadow-lg sticky top-4">
+        <div className="cart__container flex flex-col w-[300px] h-[400px] rounded-lg p-6 bg-white shadow-lg sticky top-4 mr-5">
             <h2 className="text-xl font-semibold text-gray-800 mb-4">Tu Carrito</h2>
             <div className="flex-1 overflow-auto">
                 {/* Aquí irían los productos, solo con botones + y - */}
