@@ -1,19 +1,30 @@
 import './App.css';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { PageDashboard } from './pages/PageDashboard';
 import Login from './pages/Login';
 import Register from './pages/Register';
-import { ComponentNavbar } from './components/component-navbar/ComponentNavbar';  
+import { ComponentNavbar } from './components/component-navbar/ComponentNavbar';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
     return (
         <Router>
-            <ComponentNavbar />  
+            <ComponentNavbar />
+            <ToastContainer 
+                position="top-right"
+                autoClose={3000}
+                hideProgressBar={false}
+                closeOnClick
+                pauseOnHover
+                theme="light"
+            />
 
             <Routes>
-                <Route path="/" element={<PageDashboard />} />  {/* Ruta para el Dashboard */}
-                <Route path="/pages/login" element={<Login />} />     {/* Ruta para el Login */}
-                <Route path="/pages/register" element={<Register />} /> {/* Ruta para el Registro */}
+                <Route path="/" element={<PageDashboard />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/register" element={<Register />} />
+                <Route path="*" element={<Navigate to="/" replace />} />
             </Routes>
         </Router>
     );

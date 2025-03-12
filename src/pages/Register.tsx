@@ -13,7 +13,7 @@ const Register = () => {
     const navigate = useNavigate();
 
     const onSubmit = async (data: FormData) => {
-        // Generar un ID único con la fecha y hora actual
+        // Generar un ID ï¿½nico con la fecha y hora actual
         const uniqueID = `user-${Date.now()}`;  
 
         try {
@@ -24,7 +24,7 @@ const Register = () => {
                 },
                 mode: "no-cors",
                 body: JSON.stringify({
-                    "user_id": uniqueID, // ID único generado
+                    "user_id": uniqueID, // ID ï¿½nico generado
                     "email": data.email,
                     "name": data.name,
                     "password": data.password
@@ -35,7 +35,7 @@ const Register = () => {
                 throw new Error('Error en el registro: ' + response.statusText);
             }
 
-            navigate("/pages/Login"); // Redirige al login cuando se registra de manera correcta
+            //navigate("/login"); // Redirige al login cuando se registra de manera correcta
         } catch (error) {
             console.error("Error en registro:", error);
         }
@@ -66,7 +66,7 @@ const Register = () => {
                                 required: "El email es obligatorio",
                                 pattern: {
                                     value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
-                                    message: "El email no es válido"
+                                    message: "El email no es vï¿½lido"
                                 }
                             })}
                             className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none"
@@ -75,24 +75,24 @@ const Register = () => {
                     </div>
 
                     <div className="mb-4">
-                        <label htmlFor="password" className="block text-sm font-medium text-gray-600">Contraseña</label>
+                        <label htmlFor="password" className="block text-sm font-medium text-gray-600">Contraseï¿½a</label>
                         <input
                             id="password"
                             type="password"
-                            {...register("password", { required: "La contraseña es obligatoria" })}
+                            {...register("password", { required: "La contraseï¿½a es obligatoria" })}
                             className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none"
                         />
                         {errors.password && <p className="text-sm text-red-500 mt-1">{errors.password.message}</p>}
                     </div>
 
                     <div className="mb-4">
-                        <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-600">Confirmar Contraseña</label>
+                        <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-600">Confirmar Contraseï¿½a</label>
                         <input
                             id="confirmPassword"
                             type="password"
                             {...register("confirmPassword", {
-                                required: "La confirmación de contraseña es obligatoria",
-                                validate: (value) => value === watch('password') || "Las contraseñas no coinciden"
+                                required: "La confirmaciï¿½n de contraseï¿½a es obligatoria",
+                                validate: (value) => value === watch('password') || "Las contraseï¿½as no coinciden"
                             })}
                             className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none"
                         />
@@ -105,7 +105,7 @@ const Register = () => {
                 </form>
 
                 <p className="mt-4 text-center text-sm text-gray-600">
-                    ¿Ya tienes cuenta? <Link to="/pages/Login" className="text-indigo-500 hover:text-indigo-700">Iniciar sesión</Link>
+                    ï¿½Ya tienes cuenta? <Link to="/pages/Login" className="text-indigo-500 hover:text-indigo-700">Iniciar sesiï¿½n</Link>
                 </p>
             </div>
         </div>

@@ -3,7 +3,7 @@ import { Auth } from "../../interfaces/user-auth";
 
 
 const initialState: Auth = {
-    status: 'checking',
+    status: 'not-authenticated',
     uid: null,
     displayName: null,
     email: null,

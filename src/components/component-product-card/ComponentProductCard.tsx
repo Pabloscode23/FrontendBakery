@@ -1,8 +1,12 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import { useAppDispatch } from '../../store/store';
+import { addItem } from '../../store/cart/cartSlice';
+import { toast } from 'react-toastify';
 
 interface ProductCardProps {
+    id: number;
     image: string;
     title: string;
     description: string;
@@ -10,7 +14,19 @@ interface ProductCardProps {
     type?: string;
 }
 
-export const ComponentProductCard: React.FC<ProductCardProps> = ({ image, title, description, price }) => {
+export const ComponentProductCard: React.FC<ProductCardProps> = ({ id, image, title, description, price }) => {
+    const dispatch = useAppDispatch();
+
+    const handleAddToCart = () => {
+        dispatch(addItem({
+            id,
+            name: title,
+            price,
+            image
+        }));
+        toast.success('¡Producto agregado al carrito!');
+    };
+
     return (
         <div className='product-card__container flex flex-col sm:flex-row sm:w-[350px] w-full rounded-md overflow-hidden bg-[var(--color-brown-light)] text-[30px] mb-4 sm:mb-0 ml-5 mr-5'>
             <div className='product-card__image-container w-full sm:w-[40%] h-[150px] sm:h-full'>
@@ -23,7 +39,10 @@ export const ComponentProductCard: React.FC<ProductCardProps> = ({ image, title,
                 </div>
                 <div className='product-card__bottom-info flex justify-between items-center'>
                     <p className='product-card__price text-sm font-semibold text-[var(--color-brown-dark)]'>${price.toFixed(2)}</p>
-                    <button className='product-card__add-btn w-9 h-9 flex items-center justify-center rounded-full bg-[var(--color-brown-middle)] text-white text-lg cursor-pointer hover:bg-[var(--color-brown-dark)] transition duration-300 ease-in-out'>
+                    <button 
+                        onClick={handleAddToCart}
+                        className='product-card__add-btn w-9 h-9 flex items-center justify-center rounded-full bg-[var(--color-brown-middle)] text-white text-lg cursor-pointer hover:bg-[var(--color-brown-dark)] transition duration-300 ease-in-out'
+                    >
                         <FontAwesomeIcon icon={faPlus} />
                     </button>
                 </div>

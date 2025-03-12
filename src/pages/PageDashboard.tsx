@@ -3,15 +3,16 @@ import { ComponentProductCard } from '../components/component-product-card/Compo
 import { products } from '../assets/data/products';
 import { ComponentCart } from '../components/component-cart/ComponentCart';
 
-
 export const PageDashboard: React.FC = () => {
     return (
-        <div>
-
-            <div className='dashboard__container flex mt-7'>
-                <div className='products__container w-[60%] flex flex-wrap justify-center gap-5'>
-                    {
-                        products.map((product) => (
+        <div className="container mx-auto px-4 py-8">
+            <div className="flex flex-col lg:flex-row gap-8">
+                <div className="lg:w-2/3">
+                    <h2 className="text-2xl font-bold text-[var(--color-brown-darkest)] mb-6">
+                        Nuestros Productos
+                    </h2>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        {products.map((product) => (
                             <ComponentProductCard
                                 key={product.id}
                                 image={product.image}
@@ -19,13 +20,16 @@ export const PageDashboard: React.FC = () => {
                                 description={product.description}
                                 price={product.price}
                                 type={product.type}
+                                id={product.id}
                             />
-                        ))
-                    }
+                        ))}
+                    </div>
                 </div>
-
-                <ComponentCart />
+                
+                <div className="lg:w-1/3 lg:sticky lg:top-4 h-fit">
+                    <ComponentCart />
+                </div>
             </div>
         </div>
     );
-}
+};

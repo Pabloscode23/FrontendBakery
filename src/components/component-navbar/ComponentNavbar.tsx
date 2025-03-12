@@ -8,7 +8,7 @@ export const ComponentNavbar: React.FC = () => {
     return (
         <nav className="bg-[#8a4a35] p-2">
             <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between">
-                {/* Logo y Botón de Menú */}
+                {/* Logo y Botï¿½n de Menï¿½ */}
                 <div className="flex w-full md:w-auto items-center justify-between">
                     <button
                         onClick={() => setIsOpen(!isOpen)}
@@ -23,7 +23,7 @@ export const ComponentNavbar: React.FC = () => {
                     />
                 </div>
 
-                {/* Menú */}
+                {/* Menï¿½ */}
                 <div
                     className={`md:flex md:space-x-8 text-lg w-full md:w-auto bg-[#8a4a35] transition-all duration-300 ${isOpen ? "mt-5 flex flex-col items-center md:flex-row md:mt-0" : "hidden md:flex"}`}
                 >
@@ -37,7 +37,7 @@ export const ComponentNavbar: React.FC = () => {
                             <span className="absolute left-1/2 bottom-0 h-1 bg-white w-0 transition-all duration-300 group-hover:w-1/3 transform -translate-x-1/2"></span>
                         </a>
                     ))}
-                    {[{ to: "/pages/register", label: "Registrarse" }, { to: "/pages/login", label: "Iniciar Sesión" }].map((link, index) => (
+                    {[{ to: "/register", label: "Registrarse" }, { to: "/login", label: "Iniciar Sesiï¿½n" }].map((link, index) => (
                         <Link
                             key={index}
                             to={link.to}
