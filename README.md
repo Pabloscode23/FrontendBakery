@@ -10,7 +10,7 @@ A modern e-commerce application for bakery products built with React, TypeScript
 - **Students**:
   - Isabella María Nassar Miguez
   - José Pablo Navarro Rodríguez
-  - Santiago Zelodón Marin
+  - Santiago Zeledón Marin
 
 ## Features
 
