@@ -1,19 +1,21 @@
 import { AppDispatch } from "../store";
 import { checkingCredentials, login, logout } from "./authSlice";
 import { UserLogin } from "../../interfaces/user-auth";
+import { toast } from "react-toastify";
 
-const API_URL = 'http://localhost:3000/api';
+const LOGIN_URL = 'https://3eb9444quf.execute-api.us-east-2.amazonaws.com/prod/login';
 
 export const startLoginWithEmailPassword = ({ email, password }: UserLogin) => {
     return async (dispatch: AppDispatch) => {
         try {
             dispatch(checkingCredentials());
-            
-            const response = await fetch(`${API_URL}/auth/login`, {
+
+            const response = await fetch(LOGIN_URL, {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ email, password }),
-                credentials: 'include'
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ email, password })
             });
 
             if (!response.ok) {
@@ -21,44 +23,23 @@ export const startLoginWithEmailPassword = ({ email, password }: UserLogin) => {
                 throw new Error(errorData.message || 'Credenciales inválidas');
             }
 
-            const data = await response.json();
-            
+            const { user: data, message } = await response.json();
+
             dispatch(login({
-                uid: Number(data.uid),
+                user_id: data.user_id,
                 email,
-                displayName: data.displayName || null,
-                photoURL: data.photoURL || null
+                name: data.name || null,
+                session_token: data.session_token
             }));
-            
+
+            toast.success(message);
+
         } catch (error) {
             console.error('Login error:', error);
-            dispatch(logout({ 
-                errorMessage: error instanceof Error ? error.message : 'Error en la autenticación' 
+            dispatch(logout({
+                errorMessage: error instanceof Error ? error.message : 'Error en la autenticación'
             }));
         }
     }
 }
 
-export const startLogout = () => {
-    return async (dispatch: AppDispatch) => {
-        try {
-            dispatch(checkingCredentials());
-            
-            const response = await fetch(`${API_URL}/auth/logout`, {
-                method: 'POST',
-                credentials: 'include'
-            });
-
-            if (!response.ok) {
-                throw new Error('Error al cerrar sesión');
-            }
-
-            dispatch(logout({}));
-        } catch (error) {
-            console.error('Logout error:', error);
-            dispatch(logout({ 
-                errorMessage: error instanceof Error ? error.message : 'Error al cerrar sesión' 
-            }));
-        }
-    }
-}

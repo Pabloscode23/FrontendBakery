@@ -4,7 +4,7 @@ import { startLoginWithEmailPassword } from "../store/auth/thunks";
 
 export const useCheckAuth = () => {
     const dispatch = useAppDispatch();
-    const { status, uid, email, displayName } = useAppSelector((state) => state.auth);
+    const { status, user_id, email, name: displayName } = useAppSelector((state) => state.auth);
 
     useEffect(() => {
 
@@ -22,7 +22,7 @@ export const useCheckAuth = () => {
 
     return {
         status,
-        uid,
+        user_id,
         email,
         displayName,
         isAuthenticated: status === 'authenticated',

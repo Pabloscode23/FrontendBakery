@@ -20,10 +20,10 @@ const Login = () => {
 
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
-  const { status, errorMessage } = useAppSelector(state => state.auth);
+  const { status, errorMessage } = useAppSelector((state) => state.auth);
 
   useEffect(() => {
-    if (status === 'authenticated') {
+    if (status === "authenticated") {
       navigate("/");
     }
   }, [status, navigate]);
@@ -35,14 +35,12 @@ const Login = () => {
   }, [errorMessage]);
 
   const onSubmit = async (data: FormData) => {
-    dispatch(startLoginWithEmailPassword({ email: data.email, password: data.password }));
-    
-    if (data.rememberMe) {
-      localStorage.setItem('auth', JSON.stringify({ 
-        email: data.email, 
-        password: data.password 
-      }));
-    }
+    dispatch(
+      startLoginWithEmailPassword({
+        email: data.email,
+        password: data.password,
+      })
+    );
   };
 
   return (
@@ -64,7 +62,7 @@ const Login = () => {
               type="email"
               {...register("email", { required: "El email es obligatorio" })}
               className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none"
-              disabled={status === 'checking'}
+              disabled={status === "checking"}
             />
             {errors.email && (
               <p className="text-sm text-red-500 mt-1">
@@ -87,7 +85,7 @@ const Login = () => {
                 required: "La contraseña es obligatoria",
               })}
               className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none"
-              disabled={status === 'checking'}
+              disabled={status === "checking"}
             />
             {errors.password && (
               <p className="text-sm text-red-500 mt-1">
@@ -96,23 +94,12 @@ const Login = () => {
             )}
           </div>
 
-          <div className="mb-6">
-            <label className="flex items-center">
-              <input
-                type="checkbox"
-                {...register("rememberMe")}
-                className="mr-2"
-              />
-              <span className="text-sm text-gray-600">Recordar mis datos</span>
-            </label>
-          </div>
-
           <button
             type="submit"
             className="w-full py-2 px-4 text-white cursor-pointer rounded-md bg-[var(--color-brown-middle)] hover:bg-[var(--color-brown-dark)] disabled:opacity-50 disabled:cursor-not-allowed"
-            disabled={status === 'checking'}
+            disabled={status === "checking"}
           >
-            {status === 'checking' ? 'Ingresando...' : 'Ingresar'}
+            {status === "checking" ? "Ingresando..." : "Ingresar"}
           </button>
         </form>
         <div className="mt-4 text-center">

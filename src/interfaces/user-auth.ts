@@ -5,11 +5,11 @@ export interface UserLogin {
 }
 
 export interface Auth {
+    session_token: string | null;
     status: 'authenticated' | 'not-authenticated' | 'checking';
-    uid: number | null;
-    displayName: string | null;
+    user_id: string | null;
+    name: string | null;
     email: string | null;
-    photoURL: string | null;
     errorMessage?: string | null;
 }
 
