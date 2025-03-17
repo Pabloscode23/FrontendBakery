@@ -107,13 +107,13 @@ const Register = () => {
               htmlFor="password"
               className="block text-sm font-medium text-gray-600"
             >
-              Contrase�a
+              Contraseña
             </label>
             <input
               id="password"
               type="password"
               {...register("password", {
-                required: "La contrase�a es obligatoria",
+                required: "La contraseña es obligatoria",
               })}
               className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none"
             />
@@ -129,7 +129,7 @@ const Register = () => {
               htmlFor="confirmPassword"
               className="block text-sm font-medium text-gray-600"
             >
-              Confirmar Contrase�a
+              Confirmar Contraseña
             </label>
             <input
               id="confirmPassword"
@@ -157,12 +157,12 @@ const Register = () => {
         </form>
 
         <p className="mt-4 text-center text-sm text-gray-600">
-          �Ya tienes cuenta?{" "}
+          ¿Ya tienes cuenta?{" "}
           <Link
             to="/pages/Login"
             className="text-indigo-500 hover:text-indigo-700"
           >
-            Iniciar sesi�n
+            Iniciar sesión
           </Link>
         </p>
       </div>

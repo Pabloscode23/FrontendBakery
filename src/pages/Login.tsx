@@ -1,9 +1,9 @@
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
-import { useAppDispatch, useAppSelector } from "../store/store";
+import { useAppDispatch } from "../store/store";
 import { startLoginWithEmailPassword } from "../store/auth/thunks";
 import { useEffect } from "react";
-import { toast } from "react-toastify";
+import { useCheckAuth } from "../hooks/useCheckAuth";
 
 type FormData = {
   email: string;
@@ -20,19 +20,13 @@ const Login = () => {
 
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
-  const { status, errorMessage } = useAppSelector((state) => state.auth);
+  const { isAuthenticated } = useCheckAuth();
 
   useEffect(() => {
-    if (status === "authenticated") {
+    if (isAuthenticated) {
       navigate("/");
     }
-  }, [status, navigate]);
-
-  useEffect(() => {
-    if (errorMessage) {
-      toast.error(errorMessage);
-    }
-  }, [errorMessage]);
+  }, [isAuthenticated, navigate]);
 
   const onSubmit = async (data: FormData) => {
     dispatch(

@@ -7,10 +7,12 @@ import {
   clearCart,
 } from "../../store/cart/cartSlice";
 import { toast } from "react-toastify";
+import { useCheckAuth } from "../../hooks/useCheckAuth";
 
 export const ComponentCart: React.FC = () => {
   const { items, total } = useAppSelector((state) => state.cart);
   const dispatch = useAppDispatch();
+  const { isNotAuthenticated } = useCheckAuth();
 
   const handleDecrement = (id: number) => {
     const item = items.find((item) => item.id === id);
@@ -117,6 +119,11 @@ export const ComponentCart: React.FC = () => {
         <button className="mt-4 w-full py-2 bg-[var(--color-brown-middle)] hover:bg-[var(--color-brown-dark)] text-white rounded-lg transition-colors">
           Proceder al Pago
         </button>
+        {isNotAuthenticated && (
+          <p className="text-xs text-red-500 mt-2">
+            Debes iniciar sesión para proceder al pago
+          </p>
+        )}
       </div>
     </div>
   );

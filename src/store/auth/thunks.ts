@@ -10,6 +10,7 @@ export const startLoginWithEmailPassword = ({ email, password }: UserLogin) => {
         try {
             dispatch(checkingCredentials());
 
+
             const response = await fetch(LOGIN_URL, {
                 method: 'POST',
                 headers: {
@@ -18,10 +19,12 @@ export const startLoginWithEmailPassword = ({ email, password }: UserLogin) => {
                 body: JSON.stringify({ email, password })
             });
 
+
             if (!response.ok) {
                 const errorData = await response.json();
                 throw new Error(errorData.message || 'Credenciales inválidas');
             }
+
 
             const { user: data, message } = await response.json();
 
@@ -31,6 +34,7 @@ export const startLoginWithEmailPassword = ({ email, password }: UserLogin) => {
                 name: data.name || null,
                 session_token: data.session_token
             }));
+
 
             toast.success(message);
 

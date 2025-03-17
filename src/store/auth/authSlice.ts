@@ -4,7 +4,7 @@ import { Auth } from "../../interfaces/user-auth";
 
 const initialState: Auth = {
     session_token: null,
-    status: 'checking',
+    status: 'not-authenticated',
     user_id: null,
     name: null,
     email: null,
@@ -26,7 +26,7 @@ const saveLogin = (state: Auth) => {
         const serializedState = JSON.stringify(authData);
         localStorage.setItem('auth', serializedState);
     } catch {
-        console.error('Error al guardar el carrito');
+        console.error('Error al guardar en localStorage');
     }
 };
 
@@ -34,19 +34,6 @@ const saveLogin = (state: Auth) => {
 const clearLogin = () => {
     localStorage.removeItem('auth');
 };
-
-// Load login from localStorage
-const loadLogin = () => {
-    const authData = localStorage.getItem('auth');
-    if (authData) {
-        try {
-            return JSON.parse(authData);
-        } catch {
-            clearLogin();
-        }
-    }
-    return null;
-}
 
 
 export const authSlice = createSlice({
@@ -73,17 +60,6 @@ export const authSlice = createSlice({
         },
         checkingCredentials: (state) => {
             state.status = 'checking';
-            // Load login from localStorage
-            const authData = loadLogin();
-            if (authData) {
-                state.status = authData.status;
-                state.user_id = authData.user_id;
-                state.name = authData.name;
-                state.email = authData.email;
-                state.session_token = authData.session_token;
-            } else {
-                state.status = 'not-authenticated';
-            }
         }
     },
 });

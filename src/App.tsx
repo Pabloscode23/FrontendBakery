@@ -1,5 +1,3 @@
-import { useEffect } from "react";
-import { useDispatch } from "react-redux";
 import "./App.css";
 import {
   BrowserRouter as Router,
@@ -13,14 +11,7 @@ import Register from "./pages/Register";
 import { ComponentNavbar } from "./components/component-navbar/ComponentNavbar";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { checkingCredentials } from "./store/auth/authSlice";
 function App() {
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(checkingCredentials());
-  }, [dispatch]);
-
   return (
     <Router>
       <ComponentNavbar />
