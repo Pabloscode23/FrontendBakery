@@ -73,13 +73,6 @@ src/
 └── styles/             # Global styles
 ```
 
-## API Endpoints
-
-### Authentication
-- `POST /api/auth/login` - User login
-- `POST /api/auth/register` - User registration
-- `POST /api/auth/logout` - User logout
-
 ## Contributing
 1. Fork the repository
 2. Create your feature branch
