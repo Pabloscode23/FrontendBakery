@@ -1,50 +1,91 @@
-# React + TypeScript + Vite
+# Frontend Bakery
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern e-commerce application for bakery products built with React, TypeScript, and Vite. This project was developed as part of the "Diseño y Construcción de Componentes" course at UCENFOTEC.
 
-Currently, two official plugins are available:
+## Course Information
+- **Course**: Diseño y Construcción de Componentes
+- **Term**: C1-2025
+- **Institution**: UCENFOTEC
+- **Professor**: Mario Miguel Aguero Obando
+- **Students**:
+  - Isabella María Nassar Miguez
+  - José Pablo Navarro Rodríguez
+  - Santiago Zelodón Marin
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## Expanding the ESLint configuration
+### Authentication System
+- Secure user authentication with email/password
+- User registration with automatic login
+- Protected routes for authenticated users
+- Session management with cookies
+- User-friendly error messages in Spanish
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+### Shopping Cart
+- Add/remove products
+- Update quantities
+- Cart total calculation
+- Persistent cart state with Redux
+- Responsive cart interface
+- Toast notifications for cart actions
 
-- Configure the top-level `parserOptions` property like this:
+### Technical Stack
+- **Frontend Framework**: React with TypeScript
+- **Build Tool**: Vite
+- **State Management**: Redux
+- **Form Handling**: react-hook-form
+- **Styling**: Tailwind CSS
+- **Notifications**: react-toastify
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## Getting Started
+
+### Prerequisites
+- Node.js (latest LTS version)
+- npm or yarn
+
+### Installation
+1. Clone the repository
+2. Install dependencies:
+```bash
+npm install
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+### Development
+Run the development server:
+```bash
+npm run dev
 ```
+The application will be available at `http://localhost:5173`
+
+### Building for Production
+```bash
+npm run build
+```
+
+## Project Structure
+
+```
+src/
+├── components/          # Reusable UI components
+├── pages/              # Page components
+├── store/              # Redux store and slices
+├── api/                # API integration
+└── styles/             # Global styles
+```
+
+## API Endpoints
+
+### Authentication
+- `POST /api/auth/login` - User login
+- `POST /api/auth/register` - User registration
+- `POST /api/auth/logout` - User logout
+
+## Contributing
+1. Fork the repository
+2. Create your feature branch
+3. Commit your changes
+4. Push to the branch
+5. Open a Pull Request
+
+## License
+This project is licensed under the MIT License.
