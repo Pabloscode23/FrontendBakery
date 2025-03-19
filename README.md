@@ -69,7 +69,6 @@ src/
 ├── components/          # Reusable UI components
 ├── pages/              # Page components
 ├── store/              # Redux store and slices
-├── api/                # API integration
 └── styles/             # Global styles
 ```
 
