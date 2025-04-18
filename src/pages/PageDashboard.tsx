@@ -36,7 +36,6 @@ export const PageDashboard: React.FC = () => {
             </div>
             {isModalOpen && (
                 <ComponentPaymentDialog
-                    isModalOpen={isModalOpen}
                     onClose={() => setIsModalOpen(false)}
                 />
             )}

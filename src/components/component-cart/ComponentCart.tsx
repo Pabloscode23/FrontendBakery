@@ -9,7 +9,11 @@ import {
 import { toast } from "react-toastify";
 import { useCheckAuth } from "../../hooks/useCheckAuth";
 
-export const ComponentCart: React.FC = ({ setIsModalOpen }) => {
+type Props = {
+  setIsModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
+};
+
+export const ComponentCart: React.FC<Props> = ({ setIsModalOpen }) => {
   const { items, total } = useAppSelector((state) => state.cart);
   const dispatch = useAppDispatch();
 
