@@ -38,7 +38,7 @@ const Login = () => {
   };
 
   return (
-    <div className="flex justify-center items-center bg-[url('../../../public/assets/img/background.jpg')] bg-cover bg-center h-screen">
+    <div className="flex justify-center items-center bg-[url('/assets/img/background.jpg')] bg-cover bg-center h-screen">
       <div className="bg-white p-10 rounded-lg shadow-lg w-full max-w-sm">
         <h2 className="text-2xl font-semibold text-center text-gray-700 mb-6 ">
           Iniciar Sesión

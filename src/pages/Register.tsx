@@ -52,7 +52,7 @@ const Register = () => {
   };
 
   return (
-    <div className="flex justify-center items-center bg-[url('../../../public/assets/img/background.jpg')] bg-cover bg-center min-h-screen px-4">
+    <div className="flex justify-center items-center bg-[url('/assets/img/background.jpg')] bg-cover bg-center min-h-screen px-4">
       <div className="py-7 bg-white p-6 md:p-10 rounded-lg shadow-lg w-11/12 max-w-md mt-20 lg:mt-10 mb-10">
         <h2 className="text-2xl font-semibold text-center text-gray-700 mb-6">
           Registrarse
