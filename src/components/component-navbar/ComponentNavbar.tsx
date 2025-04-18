@@ -29,16 +29,15 @@ export const ComponentNavbar: React.FC = () => {
 
         {/* Men� */}
         <div
-          className={`md:flex md:space-x-8 text-lg w-full md:w-auto bg-[#8a4a35] transition-all duration-300 ${
-            isOpen
-              ? "mt-5 flex flex-col items-center md:flex-row md:mt-0"
-              : "hidden md:flex"
-          }`}
+          className={`md:flex md:space-x-8 text-lg w-full md:w-auto bg-[#8a4a35] transition-all duration-300 ${isOpen
+            ? "mt-5 flex flex-col items-center md:flex-row md:mt-0"
+            : "hidden md:flex"
+            }`}
         >
-          {["Ordenar", "Perfil"].map((item, index) => (
+          {["Ordenar"].map((item, index) => (
             <a
               key={index}
-              href={`#${item.toLowerCase()}`}
+              href={`/`}
               className="block md:inline-block text-white py-2 px-4 relative group"
             >
               {item}
