@@ -20,7 +20,7 @@ export const ComponentNavbar: React.FC = () => {
           </button>
           <Link to="/" className="text-white text-2xl font-bold">
             <img
-              src="src/assets/img/Logo.png"
+              src="../../../public/assets/img/Logo.png"
               alt="Logo"
               className="w-90 h-auto mx-auto md:ml-2 md:pr-4"
             />

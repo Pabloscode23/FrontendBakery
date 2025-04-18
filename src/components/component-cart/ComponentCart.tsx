@@ -1,5 +1,5 @@
 import React from "react";
-import TrashIcon from "/src/assets/img/Trash.png";
+import TrashIcon from "../../../public/assets/img/Trash.png";
 import { useAppSelector, useAppDispatch } from "../../store/store";
 import {
   removeItem,

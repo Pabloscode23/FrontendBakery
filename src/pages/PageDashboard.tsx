@@ -1,6 +1,6 @@
 import React from 'react';
 import { ComponentProductCard } from '../components/component-product-card/ComponentProductCard';
-import { products } from '../assets/data/products';
+import { products } from '../../public/assets/data/products';
 import { ComponentCart } from '../components/component-cart/ComponentCart';
 import ComponentPaymentDialog from '../components/component-payment-dialog/ComponentPaymentDialog';
 
