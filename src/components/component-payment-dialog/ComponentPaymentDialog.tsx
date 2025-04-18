@@ -148,7 +148,7 @@ const ComponentPaymentDialog: React.FC<Props> = ({ onClose }) => {
         };
 
         try {
-            const response = await fetch("https://3eb9444quf.execute-api.us-east-2.amazonaws.com/prod/orders", {
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/orders`, {
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json',

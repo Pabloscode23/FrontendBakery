@@ -24,7 +24,7 @@ const Register = () => {
 
     try {
       const response = await fetch(
-        "https://3eb9444quf.execute-api.us-east-2.amazonaws.com/prod/users",
+        `${import.meta.env.VITE_API_URL}/users`,
         {
           method: "POST",
           headers: {
@@ -32,7 +32,7 @@ const Register = () => {
           },
           mode: "no-cors",
           body: JSON.stringify({
-            user_id: uniqueID, // ID �nico generado
+            user_id: uniqueID,
             email: data.email,
             name: data.name,
             password: data.password,
@@ -45,7 +45,7 @@ const Register = () => {
       }
 
       toast.success("Usuario registrado correctamente");
-      navigate("/login"); // Redirige al login cuando se registra de manera correcta
+      navigate("/login");
     } catch (error) {
       console.error("Error en registro:", error);
     }
