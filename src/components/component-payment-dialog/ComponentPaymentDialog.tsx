@@ -5,9 +5,10 @@ import { MapContainer, TileLayer, Marker, useMapEvents } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
 import { X } from "lucide-react";
-import { useAppSelector } from "../../store/store";
+import { useAppDispatch, useAppSelector } from "../../store/store";
 import { toast } from "react-toastify";
 import { useCheckAuth } from "../../hooks/useCheckAuth";
+import { clearCart } from "../../store/cart/cartSlice";
 
 delete (L.Icon.Default.prototype as any)._getIconUrl;
 L.Icon.Default.mergeOptions({
@@ -67,6 +68,7 @@ const ComponentPaymentDialog: React.FC<Props> = ({ onClose }) => {
     const [errors, setErrors] = useState<Record<string, string>>({});
     const { total, items } = useAppSelector((state) => state.cart);
     const { user_id } = useCheckAuth();
+    const dispatch = useAppDispatch();
 
     const validateField = (field: keyof typeof schema.shape, value: any) => {
         const result = schema.shape[field].safeParse(value);
@@ -168,8 +170,8 @@ const ComponentPaymentDialog: React.FC<Props> = ({ onClose }) => {
             const data = await response.json();
             toast.success("Pago realizado con éxito");
             console.log("Respuesta de la API:", data);
-
             onClose();
+            dispatch(clearCart());
         } catch (error) {
             console.error("Error:", error);
             toast.error("No se pudo completar la orden");
