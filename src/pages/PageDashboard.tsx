@@ -33,7 +33,6 @@ export const PageDashboard: React.FC = () => {
           </div>
           <CartFAB />
           <ComponentCart setIsModalOpen={setIsModalOpen} />
-          =======
           {isModalOpen && (
             <ComponentPaymentDialog onClose={() => setIsModalOpen(false)} />
           )}

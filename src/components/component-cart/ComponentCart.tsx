@@ -18,11 +18,14 @@ type Props = {
 export const ComponentCart: React.FC<Props> = ({ setIsModalOpen }) => {
   const { items, total } = useAppSelector((state) => state.cart);
   const dispatch = useAppDispatch();
-  const { isOpen } = useCartFAB();
+  const { isOpen, toggleIsOpen } = useCartFAB();
   const { isNotAuthenticated } = useCheckAuth();
 
   const handleToggleModal = () => {
-    setIsModalOpen(true);
+    toggleIsOpen();
+    if (isOpen) {
+      setIsModalOpen(true);
+    }
   };
 
   const handleDecrement = (id: number) => {
