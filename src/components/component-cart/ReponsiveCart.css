@@ -1,0 +1,13 @@
+@media screen and (max-width: 768px) {
+    .component__cart-mobile {
+        margin: 0 auto;
+        position: fixed;
+        top: 0 ;
+        right: 0;
+        background-color: white;
+        z-index: 9999;
+        transition: all 0.25s;
+        transition-behavior: allow-discrete;
+        opacity: 1;
+    }
+}

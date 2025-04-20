@@ -1,4 +1,5 @@
 import React from "react";
+import "./ReponsiveCart.css";
 import TrashIcon from "/src/assets/img/Trash.png";
 import { useAppSelector, useAppDispatch } from "../../store/store";
 import {
@@ -8,10 +9,12 @@ import {
 } from "../../store/cart/cartSlice";
 import { toast } from "react-toastify";
 import { useCheckAuth } from "../../hooks/useCheckAuth";
+import { useCartFAB } from "../../hooks/useCartFAB";
 
 export const ComponentCart: React.FC = () => {
   const { items, total } = useAppSelector((state) => state.cart);
   const dispatch = useAppDispatch();
+  const { isOpen } = useCartFAB();
   const { isNotAuthenticated } = useCheckAuth();
 
   const handleDecrement = (id: number) => {
@@ -39,11 +42,21 @@ export const ComponentCart: React.FC = () => {
   const handleClearCart = () => {
     dispatch(clearCart());
     toast.info("Carrito vaciado");
+
+    const emptyCart = document.querySelector(".cart__container-empty");
+
+    if (emptyCart) {
+      emptyCart.classList.toggle("hidden");
+    }
   };
 
   if (items.length === 0) {
     return (
-      <div className="cart__container flex flex-col w-[300px] h-[400px] rounded-lg p-6 bg-white shadow-lg sticky top-4 mr-5">
+      <div
+        className={`${
+          !isOpen ? "hidden" : "flex component__cart-mobile"
+        } lg:flex cart__container cart__container-empty flex-col w-full lg:w-[300px] lg:h-[400px] rounded-lg p-6 bg-white shadow-lg sticky top-4 mr-5`}
+      >
         <h2 className="text-xl font-semibold mb-4">Tu carrito</h2>
         <p className="text-gray-500 text-center">Tu carrito está vacío</p>
       </div>
@@ -54,7 +67,11 @@ export const ComponentCart: React.FC = () => {
   /* const generateOrder = async () => {} */
 
   return (
-    <div className="cart__container flex flex-col w-[300px] h-[400px] rounded-lg p-6 bg-white shadow-lg sticky top-4 mr-5">
+    <div
+      className={`${
+        !isOpen ? "hidden" : "flex component__cart-mobile"
+      } opacity-0 lg:opacity-100  cart__container lg:flex flex-col w-full md:w-[300px] h-[400px] rounded-lg p-6 bg-white shadow-lg sticky top-4 mr-5`}
+    >
       <div className="flex justify-between items-center mb-4">
         <h2 className="text-xl font-semibold">Tu carrito</h2>
         <button
