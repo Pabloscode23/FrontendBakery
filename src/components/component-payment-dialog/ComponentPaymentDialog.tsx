@@ -248,7 +248,7 @@ const ComponentPaymentDialog: React.FC<Props> = ({ onClose }) => {
 
                     <button
                         onClick={handlePay}
-                        className="mt-6 bg-[var(--color-brown-middle)] hover:bg-[var(--color-brown-dark)] text-white font-semibold py-2 rounded-md"
+                        className="cursor-pointer mt-6 bg-[var(--color-brown-middle)] hover:bg-[var(--color-brown-dark)] text-white font-semibold py-2 rounded-md"
                     >
                         Pagar
                     </button>
