@@ -3,7 +3,7 @@ import { checkingCredentials, login, logout } from "./authSlice";
 import { UserLogin } from "../../interfaces/user-auth";
 import { toast } from "react-toastify";
 
-const LOGIN_URL = 'https://3eb9444quf.execute-api.us-east-2.amazonaws.com/prod/login';
+const LOGIN_URL = `${import.meta.env.VITE_API_URL}/login`;
 
 export const startLoginWithEmailPassword = ({ email, password }: UserLogin) => {
     return async (dispatch: AppDispatch) => {

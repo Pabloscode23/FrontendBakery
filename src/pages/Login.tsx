@@ -38,7 +38,7 @@ const Login = () => {
   };
 
   return (
-    <div className="flex justify-center items-center bg-[url('src/assets/img/background.jpg')] bg-cover bg-center h-screen">
+    <div className="flex justify-center items-center bg-[url('/assets/img/background.jpg')] bg-cover bg-center h-screen">
       <div className="bg-white p-10 rounded-lg shadow-lg w-full max-w-sm">
         <h2 className="text-2xl font-semibold text-center text-gray-700 mb-6 ">
           Iniciar Sesión
@@ -100,7 +100,7 @@ const Login = () => {
           <p className="text-sm text-gray-600">
             ¿No tienes una cuenta?{" "}
             <Link
-              to="/pages/register"
+              to="/register"
               className="text-indigo-500 hover:text-indigo-700"
             >
               Registrarse

@@ -1,11 +1,14 @@
 import React from "react";
 import { ComponentProductCard } from "../components/component-product-card/ComponentProductCard";
-import { products } from "../assets/data/products";
+import { products } from "../../public/assets/data/products";
 import { ComponentCart } from "../components/component-cart/ComponentCart";
 import { CartFAB } from "../components/component-cart/CartFAB";
 import { CartFABProvider } from "../context/CartFABContext";
+import ComponentPaymentDialog from "../components/component-payment-dialog/ComponentPaymentDialog";
 
 export const PageDashboard: React.FC = () => {
+  const [isModalOpen, setIsModalOpen] = React.useState(false);
+
   return (
     <CartFABProvider>
       <div className="container mx-auto px-4 py-8">
@@ -28,11 +31,12 @@ export const PageDashboard: React.FC = () => {
               ))}
             </div>
           </div>
-
           <CartFAB />
-          <div className="lg:w-1/3 lg:sticky lg:top-4 h-fit">
-            <ComponentCart />
-          </div>
+          <ComponentCart setIsModalOpen={setIsModalOpen} />
+          =======
+          {isModalOpen && (
+            <ComponentPaymentDialog onClose={() => setIsModalOpen(false)} />
+          )}
         </div>
       </div>
     </CartFABProvider>

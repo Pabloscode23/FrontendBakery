@@ -24,7 +24,7 @@ const Register = () => {
 
     try {
       const response = await fetch(
-        "https://3eb9444quf.execute-api.us-east-2.amazonaws.com/prod/users",
+        `${import.meta.env.VITE_API_URL}/users`,
         {
           method: "POST",
           headers: {
@@ -32,7 +32,7 @@ const Register = () => {
           },
           mode: "no-cors",
           body: JSON.stringify({
-            user_id: uniqueID, // ID �nico generado
+            user_id: uniqueID,
             email: data.email,
             name: data.name,
             password: data.password,
@@ -45,14 +45,14 @@ const Register = () => {
       }
 
       toast.success("Usuario registrado correctamente");
-      navigate("/login"); // Redirige al login cuando se registra de manera correcta
+      navigate("/login");
     } catch (error) {
       console.error("Error en registro:", error);
     }
   };
 
   return (
-    <div className="flex justify-center items-center bg-[url('src/assets/img/background.jpg')] bg-cover bg-center min-h-screen px-4">
+    <div className="flex justify-center items-center bg-[url('/assets/img/background.jpg')] bg-cover bg-center min-h-screen px-4">
       <div className="py-7 bg-white p-6 md:p-10 rounded-lg shadow-lg w-11/12 max-w-md mt-20 lg:mt-10 mb-10">
         <h2 className="text-2xl font-semibold text-center text-gray-700 mb-6">
           Registrarse
@@ -159,7 +159,7 @@ const Register = () => {
         <p className="mt-4 text-center text-sm text-gray-600">
           ¿Ya tienes cuenta?{" "}
           <Link
-            to="/pages/Login"
+            to="/login"
             className="text-indigo-500 hover:text-indigo-700"
           >
             Iniciar sesión
