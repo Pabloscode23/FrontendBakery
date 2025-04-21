@@ -29,13 +29,24 @@ A modern e-commerce application for bakery products built with React, TypeScript
 - Responsive cart interface
 - Toast notifications for cart actions
 
-### Technical Stack
-- **Frontend Framework**: React with TypeScript
+## Technical Stack
+
+### Frontend
+- **Frontend Library**: React with TypeScript
 - **Build Tool**: Vite
 - **State Management**: Redux
 - **Form Handling**: react-hook-form
 - **Styling**: Tailwind CSS
 - **Notifications**: react-toastify
+
+### Backend with AWS (Serverless Architecture)
+- **API Gateway**: Exposes secure RESTful endpoints for frontend communication.
+- **AWS Lambda (Python)**: Stateless backend functions handle business logic, including user management, product operations, and order processing.
+- **DynamoDB**: NoSQL database used for storing user data, products, and orders.
+- **CloudWatch**: Monitoring and logging for all Lambda functions and API Gateway activity.
+- **AWS Amplify**: Hosting and continuous deployment for the frontend application.
+
+> The backend is built using a serverless approach to ensure high scalability and low maintenance.
 
 ## Getting Started
 
@@ -48,36 +59,3 @@ A modern e-commerce application for bakery products built with React, TypeScript
 2. Install dependencies:
 ```bash
 npm install
-```
-
-### Development
-Run the development server:
-```bash
-npm run dev
-```
-The application will be available at `http://localhost:5173`
-
-### Building for Production
-```bash
-npm run build
-```
-
-## Project Structure
-
-```
-src/
-├── components/          # Reusable UI components
-├── pages/              # Page components
-├── store/              # Redux store and slices
-└── styles/             # Global styles
-```
-
-## Contributing
-1. Fork the repository
-2. Create your feature branch
-3. Commit your changes
-4. Push to the branch
-5. Open a Pull Request
-
-## License
-This project is licensed under the MIT License.
