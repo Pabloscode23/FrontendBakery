@@ -1,4 +1,5 @@
-import { Address } from "cluster";
+
+import { Address } from "./Address";
 import { OrderItem } from "./OrderItem";
 
 export interface Order {
