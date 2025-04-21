@@ -1,16 +1,16 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Contexts",
+    "\\public",
+    "\\public\\assets",
+    "\\public\\assets\\data",
     "\\src",
-    "\\src\\assets",
-    "\\src\\assets\\data",
     "\\src\\components",
     "\\src\\components\\component-cart",
     "\\src\\components\\component-navbar",
     "\\src\\components\\component-product-card",
     "\\src\\pages"
   ],
-  "SelectedNode": "\\src\\pages\\Register.tsx",
+  "SelectedNode": "\\src\\pages\\Orders.tsx",
   "PreviewInSolutionExplorer": false
 }

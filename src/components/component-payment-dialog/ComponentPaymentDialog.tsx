@@ -174,17 +174,13 @@ const ComponentPaymentDialog: React.FC<Props> = ({ onClose }) => {
         body: JSON.stringify(orderPayload),
       });
 
-      console.log("Status de la respuesta:", response.status);
-
       if (!response.ok) {
         const errorText = await response.text();
         console.error("Error del backend:", errorText);
         throw new Error("Error al procesar la orden");
       }
 
-      const data = await response.json();
       toast.success("Pago realizado con éxito");
-      console.log("Respuesta de la API:", data);
       onClose();
       dispatch(clearCart());
     } catch (error) {
@@ -263,7 +259,7 @@ const ComponentPaymentDialog: React.FC<Props> = ({ onClose }) => {
 
           <button
             onClick={handlePay}
-            className="mt-6 bg-[var(--color-brown-middle)] hover:bg-[var(--color-brown-dark)] text-white font-semibold py-2 rounded-md"
+            className="cursor-pointer mt-6 bg-[var(--color-brown-middle)] hover:bg-[var(--color-brown-dark)] text-white font-semibold py-2 rounded-md"
           >
             Pagar
           </button>

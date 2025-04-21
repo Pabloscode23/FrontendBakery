@@ -110,21 +110,25 @@ export const ComponentCart: React.FC<Props> = ({ setIsModalOpen }) => {
                 onClick={() => handleRemoveItem(item.id)}
                 className="text-red-500 hover:text-red-700"
               >
-                <img src={TrashIcon} alt="Eliminar" className="w-5 h-5" />
+                <img
+                  src={TrashIcon}
+                  alt="Eliminar"
+                  className="cursor-pointer w-5 h-5"
+                />
               </button>
             </div>
             <div className="flex justify-between items-center">
               <div className="flex items-center space-x-3">
                 <button
                   onClick={() => handleDecrement(item.id)}
-                  className="w-8 h-8 flex items-center justify-center bg-gray-200 text-gray-800 rounded-full hover:bg-gray-300 transition"
+                  className="cursor-pointer w-8 h-8 flex items-center justify-center bg-gray-200 text-gray-800 rounded-full hover:bg-gray-300 transition"
                 >
                   -
                 </button>
                 <span className="text-gray-800">{item.quantity}</span>
                 <button
                   onClick={() => handleIncrement(item.id)}
-                  className="w-8 h-8 flex items-center justify-center bg-gray-200 text-gray-800 rounded-full hover:bg-gray-300 transition"
+                  className="cursor-pointer w-8 h-8 flex items-center justify-center bg-gray-200 text-gray-800 rounded-full hover:bg-gray-300 transition"
                 >
                   +
                 </button>
@@ -143,7 +147,7 @@ export const ComponentCart: React.FC<Props> = ({ setIsModalOpen }) => {
         </div>
         <button
           onClick={handleToggleModal}
-          className="mt-4 w-full py-2 bg-[var(--color-brown-middle)] hover:bg-[var(--color-brown-dark)] text-white rounded-lg transition-colors"
+          className="cursor-pointer mt-4 w-full py-2 bg-[var(--color-brown-middle)] hover:bg-[var(--color-brown-dark)] text-white rounded-lg transition-colors"
         >
           Proceder al Pago
         </button>
