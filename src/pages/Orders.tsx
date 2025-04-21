@@ -4,34 +4,16 @@ import { toast } from "react-toastify";
 import Loader from "../components/Loader";
 import { products } from "../../public/assets/data/products";
 import { X } from "lucide-react";
-
-
-interface Address {
-    street: string;
-    city: string;
-    state: string;
-    postal_code: string;
-}
-
-interface OrderItem {
-    product_id: number;
-    quantity: number;
-    price: number;
-}
-
-interface Order {
-    order_id: string;
-    user_id: string;
-    total_price: string;
-    items: OrderItem[];
-    address: Address;
-}
+import { Order } from "../types";
 
 export const Orders: React.FC = () => {
     const { user_id, isAuthenticated } = useCheckAuth();
     const [orders, setOrders] = useState<Order[]>([]);
     const [loading, setLoading] = useState(true);
     const [selectedOrderId, setSelectedOrderId] = useState<string | null>(null);
+    const sortedOrders = [...orders].sort(
+        (a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
+    );
 
     useEffect(() => {
         if (!isAuthenticated) return;
@@ -51,7 +33,11 @@ export const Orders: React.FC = () => {
 
                 setOrders(data.orders);
             } catch (error) {
-                toast.error("No se pudieron cargar los pedidos.");
+                if (orders.length !== 0) {
+                    toast.error("No se pudieron cargar los pedidos.");
+                } else {
+                    return
+                }
                 console.error("Error fetching orders:", error);
             } finally {
                 setLoading(false);
@@ -110,7 +96,7 @@ export const Orders: React.FC = () => {
                 </p>
             ) : (
                 <div className="space-y-6">
-                    {orders.map((order) => (
+                    {sortedOrders.map((order) => (
                         <div
                             key={order.order_id}
                             className="relative border border-gray-200 rounded-lg p-6 bg-white shadow-md hover:shadow-xl transition-shadow duration-300"
