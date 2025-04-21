@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useCheckAuth } from "../hooks/useCheckAuth";
 import { toast } from "react-toastify";
 import Loader from "../components/Loader";
-
+import { products } from "../../public/assets/data/products";
 import { X } from "lucide-react";
 
 
@@ -88,7 +88,7 @@ export const Orders: React.FC = () => {
     if (!isAuthenticated) {
         return (
             <p className="text-center text-gray-500 mt-10 text-lg">
-                Debes iniciar sesión para ver tus pedidos.
+                Debes iniciar sesiï¿½n para ver tus pedidos.
             </p>
         );
     }
@@ -135,7 +135,7 @@ export const Orders: React.FC = () => {
                                         Productos en esta orden:
                                     </p>
                                     <span className="text-gray-700 text-base">
-                                        Total: <strong>${order.total_price}</strong>
+                                        <strong>Total:</strong> ${order.total_price}
                                     </span>
                                 </div>
                                 <ul className="space-y-3">
@@ -146,15 +146,17 @@ export const Orders: React.FC = () => {
                                         >
                                             <div className="flex justify-between">
                                                 <span className="text-gray-700">
-                                                    Producto ID: <strong>{item.product_id}</strong>
+                                                    <strong>Producto:</strong> {
+                                                        products.find((product) => product.id == item.product_id)?.name || "Producto no encontrado"
+                                                    }
                                                 </span>
                                                 <span className="text-gray-600">
-                                                    Cantidad: <strong>{item.quantity}</strong>
+                                                    <strong>Cantidad: </strong>{item.quantity}
                                                 </span>
                                             </div>
                                             <div className="mt-2 flex justify-between items-center">
                                                 <span className="text-gray-700">
-                                                    Precio: $<strong>{item.price}</strong>
+                                                    <strong>Precio:</strong> ${item.price}
                                                 </span>
                                             </div>
                                         </li>
