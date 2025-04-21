@@ -88,7 +88,7 @@ export const Orders: React.FC = () => {
     if (!isAuthenticated) {
         return (
             <p className="text-center text-gray-500 mt-10 text-lg">
-                Debes iniciar sesi�n para ver tus pedidos.
+                Debes iniciar sesión para ver tus pedidos.
             </p>
         );
     }

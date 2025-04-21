@@ -2,7 +2,6 @@ import { Menu } from "lucide-react";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useCheckAuth } from "../../hooks/useCheckAuth";
-import Orders from "./pages/Orders";
 
 export const ComponentNavbar: React.FC = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -30,8 +29,8 @@ export const ComponentNavbar: React.FC = () => {
                 {/* Menú */}
                 <div
                     className={`md:flex md:space-x-8 text-lg w-full md:w-auto bg-[#8a4a35] transition-all duration-300 ${isOpen
-                            ? "mt-5 flex flex-col items-center md:flex-row md:mt-0"
-                            : "hidden md:flex"
+                        ? "mt-5 flex flex-col items-center md:flex-row md:mt-0"
+                        : "hidden md:flex"
                         }`}
                 >
                     <Link
