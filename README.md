@@ -46,7 +46,11 @@ A modern e-commerce application for bakery products built with React, TypeScript
 - **CloudWatch**: Monitoring and logging for all Lambda functions and API Gateway activity.
 - **AWS Amplify**: Hosting and continuous deployment for the frontend application.
 
-> The backend is built using a serverless approach to ensure high scalability and low maintenance.
+The backend is built using a serverless approach to ensure high scalability and low maintenance.
+
+## Deployed Website
+
+ https://main.ds9w480do3j15.amplifyapp.com/
 
 ## Getting Started
 
